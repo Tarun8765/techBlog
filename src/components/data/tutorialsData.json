@@ -1,0 +1,19 @@
+{
+  "tutorials": [
+    {
+      "title": "React + TypeScript Crash Course",
+      "level": "Beginner",
+      "duration": "40 min"
+    },
+    {
+      "title": "Build a REST API with Node.js & Express",
+      "level": "Intermediate",
+      "duration": "55 min"
+    },
+    {
+      "title": "Master Git & GitHub for Developers",
+      "level": "Beginner",
+      "duration": "30 min"
+    }
+  ]
+}

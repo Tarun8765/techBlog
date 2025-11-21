@@ -1,4 +1,4 @@
-import { Code2, Github, Twitter, Linkedin } from "lucide-react";
+import { Code2, Github, X, Linkedin, TwitterIcon } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -71,14 +71,14 @@ const Footer = () => {
                 href="https://x.com/Ghawri1111"
                 className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center"
               >
-                <Twitter className="w-4 h-4" />
+                <TwitterIcon className="w-4 h-4" />
               </a>
               <a
                 href="https://www.linkedin.com/in/tarunghawri1111/"
                 className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center"
               >
                 <Linkedin className="w-4 h-4" />
-              </a>
+              </a>{" "}
             </div>
           </div>
         </div>
