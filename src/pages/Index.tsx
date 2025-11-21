@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ArticleCard from "@/components/ArticleCard";
 import Footer from "@/components/Footer";
-import articleData from "../components/data/articleData.json";
+import articleData from "../data/articleData.json";
 
 const Index = () => {
   return (
