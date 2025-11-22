@@ -1,0 +1,41 @@
+{
+  "values": [
+    {
+      "icon": "Target",
+      "title": "Our Mission",
+      "description": "To empower developers and tech enthusiasts with high-quality content that simplifies complex topics and accelerates learning."
+    },
+    {
+      "icon": "Heart",
+      "title": "Our Passion",
+      "description": "We're passionate about technology and believe in sharing knowledge to help the community grow and innovate together."
+    },
+    {
+      "icon": "Zap",
+      "title": "Our Approach",
+      "description": "Practical, hands-on tutorials and articles that you can apply immediately to real-world projects and challenges."
+    },
+    {
+      "icon": "Users",
+      "title": "Our Community",
+      "description": "Building a supportive community where developers of all levels can learn, share, and grow their skills together."
+    }
+  ],
+  "team": [
+    {
+      "name": "Tarun Ghawri",
+      "role": "Founder & Lead Writer",
+      "bio": "Full-stack developer with 10+ years of experience in web technologies and a passion for teaching."
+    },
+    {
+      "name": "Manvendra Rajpoot",
+      "role": "Technical Editor",
+      "bio": "DevOps specialist and cloud architecture expert, ensuring technical accuracy in every article."
+    },
+    {
+      "name": "Vishal sahu",
+      "role": "Content Strategist",
+      "bio": "Former software engineer turned content creator, bridging the gap between complex tech and clear communication."
+    }
+  ]
+}

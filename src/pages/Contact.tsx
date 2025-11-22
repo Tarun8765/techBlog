@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
+import contactBanner from "@/assets/contact-banner.jpg";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -54,17 +55,28 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+      {/* Banner Section */}
+      <section className="relative h-[300px] overflow-hidden">
+        <img
+          src={contactBanner}
+          alt="Contact Banner"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/80" />
+        <div className="relative container mx-auto px-4 h-full flex items-center justify-center text-center">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Get In Touch
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Have a question or suggestion? We'd love to hear from you.
             </p>
           </div>
+        </div>
+      </section>
 
+      <main className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="bg-card border-border">
               <CardHeader>

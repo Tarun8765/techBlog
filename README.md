@@ -71,3 +71,6 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+https://vscode-34166bbb-3c04-48e5-a28b-f24e8a24ebdc.preview.emergentagent.com/
+5bf0636f

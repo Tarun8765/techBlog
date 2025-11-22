@@ -1,8 +1,6 @@
 import { Book, Video, FileText, Code, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Example from "@/components/ui/Example";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,6 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ResourceDialog } from "@/components/ResourceDialog";
+import resourcesBanner from "@/assets/resources-banner.jpg";
 
 const resources = [
   {
@@ -103,17 +103,26 @@ const Resources = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            Learning Resources
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Curated collection of tutorials, documentation, and tools to enhance
-            your development skills
-          </p>
+      {/* Banner Section */}
+      <div className="relative h-64 overflow-hidden">
+        <img
+          src={resourcesBanner}
+          alt="Resources"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 flex items-center">
+          <div className="container mx-auto px-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-2">
+              Learning Resources
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              Curated collection to enhance your development skills
+            </p>
+          </div>
         </div>
+      </div>
 
+      <main className="container mx-auto px-4 py-12">
         <div className="grid gap-8 max-w-6xl mx-auto">
           {resources.map((section) => (
             <Card
@@ -164,14 +173,12 @@ const Resources = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button size="lg" className="font-mono">
-                Submit Resource
-              </Button>
+              <ResourceDialog />
             </CardContent>
           </Card>
         </div>
       </main>
-      <Example />
+
       <Footer />
     </div>
   );

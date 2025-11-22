@@ -8,6 +8,8 @@ import Footer from "@/components/Footer";
 import TableOfContents from "@/components/TableOfContents";
 import CodeBlock from "@/components/CodeBlock";
 import RelatedArticles from "@/components/RelatedArticles";
+import { CommentsSection } from "@/components/CommentsSection";
+import { SocialShare } from "@/components/SocialShare";
 
 // Sample article data
 const articles = {
@@ -20,16 +22,18 @@ const articles = {
     content: [
       {
         type: "paragraph",
-        content: "Building scalable web applications requires careful consideration of architecture patterns, infrastructure choices, and development practices. In this comprehensive guide, we'll explore the key principles and technologies that enable applications to grow from prototype to production."
+        content:
+          "Building scalable web applications requires careful consideration of architecture patterns, infrastructure choices, and development practices. In this comprehensive guide, we'll explore the key principles and technologies that enable applications to grow from prototype to production.",
       },
       {
         type: "heading",
         id: "microservices-architecture",
-        content: "Microservices Architecture"
+        content: "Microservices Architecture",
       },
       {
         type: "paragraph",
-        content: "Microservices architecture breaks down applications into smaller, independent services that communicate through well-defined APIs. This approach offers several advantages for scalability and maintainability."
+        content:
+          "Microservices architecture breaks down applications into smaller, independent services that communicate through well-defined APIs. This approach offers several advantages for scalability and maintainability.",
       },
       {
         type: "code",
@@ -55,16 +59,17 @@ class UserMicroservice implements UserService {
     });
     return response.json();
   }
-}`
+}`,
       },
       {
         type: "heading",
         id: "containerization",
-        content: "Containerization with Docker"
+        content: "Containerization with Docker",
       },
       {
         type: "paragraph",
-        content: "Docker containers provide consistent environments across development, testing, and production. They encapsulate your application and its dependencies, ensuring it runs the same way everywhere."
+        content:
+          "Docker containers provide consistent environments across development, testing, and production. They encapsulate your application and its dependencies, ensuring it runs the same way everywhere.",
       },
       {
         type: "code",
@@ -83,16 +88,17 @@ COPY --from=builder /app/dist ./dist
 COPY package*.json ./
 RUN npm ci --only=production
 EXPOSE 3000
-CMD ["node", "dist/server.js"]`
+CMD ["node", "dist/server.js"]`,
       },
       {
         type: "heading",
         id: "cloud-native-patterns",
-        content: "Cloud-Native Patterns"
+        content: "Cloud-Native Patterns",
       },
       {
         type: "paragraph",
-        content: "Cloud-native applications are designed to take full advantage of cloud computing platforms. Key patterns include auto-scaling, load balancing, and distributed caching."
+        content:
+          "Cloud-native applications are designed to take full advantage of cloud computing platforms. Key patterns include auto-scaling, load balancing, and distributed caching.",
       },
       {
         type: "code",
@@ -117,19 +123,20 @@ async function getCachedData<T>(
   await redis.setex(key, ttl, JSON.stringify(fresh));
   
   return fresh;
-}`
+}`,
       },
       {
         type: "heading",
         id: "conclusion",
-        content: "Conclusion"
+        content: "Conclusion",
       },
       {
         type: "paragraph",
-        content: "Building scalable web applications is an iterative process that requires continuous monitoring, optimization, and adaptation. By following these architectural patterns and best practices, you can create systems that grow with your user base while maintaining performance and reliability."
-      }
-    ]
-  }
+        content:
+          "Building scalable web applications is an iterative process that requires continuous monitoring, optimization, and adaptation. By following these architectural patterns and best practices, you can create systems that grow with your user base while maintaining performance and reliability.",
+      },
+    ],
+  },
 };
 
 const Article = () => {
@@ -154,13 +161,13 @@ const Article = () => {
   }
 
   const headings = article.content
-    .filter(item => item.type === "heading")
-    .map(item => ({ id: item.id!, text: item.content }));
+    .filter((item) => item.type === "heading")
+    .map((item) => ({ id: item.id!, text: item.content }));
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       <article className="flex-1 py-12">
         <div className="container mx-auto px-4 max-w-7xl">
           <Link to="/">
@@ -174,7 +181,7 @@ const Article = () => {
             <div className="max-w-3xl">
               <div className="space-y-6 mb-8">
                 <div className="flex flex-wrap gap-2">
-                  {article.tags.map(tag => (
+                  {article.tags.map((tag) => (
                     <Badge key={tag} variant="secondary" className="font-mono">
                       {tag}
                     </Badge>
@@ -207,12 +214,15 @@ const Article = () => {
                 {article.content.map((block, index) => {
                   if (block.type === "paragraph") {
                     return (
-                      <p key={index} className="text-foreground/90 leading-relaxed mb-6">
+                      <p
+                        key={index}
+                        className="text-foreground/90 leading-relaxed mb-6"
+                      >
                         {block.content}
                       </p>
                     );
                   }
-                  
+
                   if (block.type === "heading") {
                     return (
                       <h2
@@ -224,7 +234,7 @@ const Article = () => {
                       </h2>
                     );
                   }
-                  
+
                   if (block.type === "code") {
                     return (
                       <CodeBlock
@@ -234,12 +244,40 @@ const Article = () => {
                       />
                     );
                   }
-                  
+
                   return null;
                 })}
               </div>
 
               <Separator className="my-12" />
+
+              {/* Social Share */}
+              <div className="mb-8">
+                <SocialShare title={article.title} />
+              </div>
+
+              <Separator className="my-8" />
+
+              {/* Author Bio Section */}
+              <div className="bg-muted/30 rounded-lg p-6 mb-12">
+                <h3 className="text-xl font-bold mb-4">About the Author</h3>
+                <div className="flex gap-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <User className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-1">{article.author}</p>
+                    <p className="text-muted-foreground text-sm">
+                      Senior Software Engineer with 10+ years of experience in
+                      building scalable web applications. Passionate about
+                      sharing knowledge and helping developers grow.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Comments Section */}
+              <CommentsSection articleSlug={slug || ""} />
 
               <RelatedArticles currentSlug={slug} />
             </div>

@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
+import newsletterBanner from "@/assets/newsletter-banner.jpg";
 
 const emailSchema = z.string().email("Please enter a valid email address");
 
@@ -36,20 +38,38 @@ const Newsletter = () => {
       emailSchema.parse(email);
       setIsSubmitting(true);
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const { error } = await supabase
+        .from("newsletter_subscribers")
+        .insert({ email });
 
-      toast({
-        title: "Successfully subscribed!",
-        description: "Check your inbox for a confirmation email.",
-      });
-
-      setEmail("");
+      if (error) {
+        if (error.code === "23505") {
+          toast({
+            title: "Already subscribed",
+            description: "This email is already subscribed to our newsletter.",
+            variant: "destructive",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({
+          title: "Successfully subscribed!",
+          description: "Thank you for subscribing to our newsletter.",
+        });
+        setEmail("");
+      }
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast({
           title: "Invalid email",
           description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to subscribe. Please try again.",
           variant: "destructive",
         });
       }
@@ -62,21 +82,27 @@ const Newsletter = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
-              <Mail className="w-8 h-8 text-primary" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+      {/* Banner Section */}
+      <div className="relative h-64 overflow-hidden">
+        <img
+          src={newsletterBanner}
+          alt="Newsletter"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 flex items-center">
+          <div className="container mx-auto px-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-2">
               Join Our Newsletter
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Stay up to date with the latest articles, tutorials, and coding
-              insights delivered straight to your inbox
+            <p className="text-xl text-muted-foreground">
+              Stay up to date with the latest articles and tutorials
             </p>
           </div>
+        </div>
+      </div>
 
+      <main className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <Card className="border-primary/20">
               <CardHeader>

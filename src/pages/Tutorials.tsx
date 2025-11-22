@@ -8,8 +8,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, BookOpen, Code } from "lucide-react";
+import { Clock, BookOpen, Code, Play, Users, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import tutorialHero from "@/assets/tutorial-hero.jpg";
+import tutorialCoding from "@/assets/tutorial-coding.jpg";
 
 const Tutorial = () => {
   const tutorials = [
@@ -72,15 +75,60 @@ const Tutorial = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
+      {/* Hero Section */}
+      <section className="relative h-[400px] overflow-hidden">
+        <img
+          src={tutorialHero}
+          alt="Tutorial Hero"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 to-background/70" />
+        <div className="relative container mx-auto px-4 h-full flex items-center">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4">
+              Master Web Development
+            </h1>
+            <p className="text-xl text-muted-foreground mb-6">
+              Comprehensive tutorials designed to take you from beginner to
+              expert
+            </p>
+            <Button size="lg" className="font-mono">
+              <Play className="w-4 h-4 mr-2" />
+              Start Learning
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+            <div>
+              <BookOpen className="w-8 h-8 text-primary mx-auto mb-2" />
+              <p className="text-3xl font-bold mb-1">50+</p>
+              <p className="text-muted-foreground">Tutorials</p>
+            </div>
+            <div>
+              <Users className="w-8 h-8 text-primary mx-auto mb-2" />
+              <p className="text-3xl font-bold mb-1">10K+</p>
+              <p className="text-muted-foreground">Students</p>
+            </div>
+            <div>
+              <Award className="w-8 h-8 text-primary mx-auto mb-2" />
+              <p className="text-3xl font-bold mb-1">95%</p>
+              <p className="text-muted-foreground">Success Rate</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <main className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-              Tutorials
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Step-by-step guides to help you master modern web development
-              technologies.
+            <h2 className="text-3xl font-bold mb-4">Available Tutorials</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Step-by-step guides with hands-on examples and best practices
             </p>
           </div>
 
@@ -129,6 +177,35 @@ const Tutorial = () => {
                 </Card>
               </Link>
             ))}
+          </div>
+
+          {/* Featured Section */}
+          <div className="mt-16">
+            <Card className="overflow-hidden border-primary/20">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="p-8 flex flex-col justify-center">
+                  <Badge className="w-fit mb-4">Featured</Badge>
+                  <h3 className="text-2xl font-bold mb-3">
+                    Interactive Coding Environment
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    All our tutorials include an interactive coding environment
+                    where you can practice as you learn. Write code, see results
+                    instantly, and build muscle memory.
+                  </p>
+                  <Button variant="outline" className="w-fit">
+                    Try Interactive Demo
+                  </Button>
+                </div>
+                <div className="h-64 md:h-auto">
+                  <img
+                    src={tutorialCoding}
+                    alt="Coding environment"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </main>

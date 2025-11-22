@@ -1,0 +1,88 @@
+{
+  "resources": [
+    {
+      "category": "Documentation",
+      "icon": "FileText",
+      "items": [
+        {
+          "title": "React Documentation",
+          "description": "Official React docs and guides",
+          "url": "https://react.dev"
+        },
+        {
+          "title": "TypeScript Handbook",
+          "description": "Learn TypeScript from the ground up",
+          "url": "https://www.typescriptlang.org/docs/"
+        },
+        {
+          "title": "Tailwind CSS",
+          "description": "Utility-first CSS framework documentation",
+          "url": "https://tailwindcss.com/docs"
+        }
+      ]
+    },
+    {
+      "category": "Video Tutorials",
+      "icon": "Video",
+      "items": [
+        {
+          "title": "Web Development Crash Course",
+          "description": "Complete guide for beginners",
+          "url": "#"
+        },
+        {
+          "title": "Advanced React Patterns",
+          "description": "Master modern React techniques",
+          "url": "#"
+        },
+        {
+          "title": "TypeScript Fundamentals",
+          "description": "From basics to advanced concepts",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "category": "Books & eBooks",
+      "icon": "Book",
+      "items": [
+        {
+          "title": "You Don't Know JS",
+          "description": "Deep dive into JavaScript",
+          "url": "#"
+        },
+        {
+          "title": "Clean Code",
+          "description": "Writing maintainable software",
+          "url": "#"
+        },
+        {
+          "title": "The Pragmatic Programmer",
+          "description": "Your journey to mastery",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "category": "Code Examples",
+      "icon": "Code",
+      "items": [
+        {
+          "title": "React Component Library",
+          "description": "Reusable component examples",
+          "url": "https://react.dev/learn"
+        },
+        {
+          "title": "API Integration Patterns",
+          "description": "Common API patterns and solutions",
+          "url": "#"
+        },
+        {
+          "title": "Testing Examples",
+          "description": "Unit and integration test samples",
+          "url": "#"
+        }
+      ]
+    }
+  ]
+}

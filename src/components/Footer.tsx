@@ -1,4 +1,4 @@
-import { Code2, Github, X, Linkedin, TwitterIcon } from "lucide-react";
+import { Code2, Github, Twitter, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -7,8 +7,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <Code2 className="w-5 h-5 text-primary" />
-              <span className="text-lg font-bold font-mono">TechBlog</span>
+              <Code2 className="w-6 h-6 text-primary" />
+              <span className="text-lg font-bold font-mono">TechBlogs</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Sharing knowledge about web development, programming, and software
@@ -62,23 +62,23 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="flex gap-3">
               <a
-                href="https://github.com/Tarun8765"
+                href="#"
                 className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center"
               >
                 <Github className="w-4 h-4" />
               </a>
               <a
-                href="https://x.com/Ghawri1111"
+                href="#"
                 className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center"
               >
-                <TwitterIcon className="w-4 h-4" />
+                <Twitter className="w-4 h-4" />
               </a>
               <a
-                href="https://www.linkedin.com/in/tarunghawri1111/"
+                href="#"
                 className="w-9 h-9 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center"
               >
                 <Linkedin className="w-4 h-4" />
-              </a>{" "}
+              </a>
             </div>
           </div>
         </div>

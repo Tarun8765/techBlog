@@ -1,8 +1,8 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Button } from './ui/button';
-import { Check, Copy } from 'lucide-react';
-import { useState } from 'react';
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Button } from "./ui/button";
+import { Check, Copy } from "lucide-react";
+import { useState } from "react";
 
 interface CodeBlockProps {
   code: string;
@@ -49,9 +49,9 @@ const CodeBlock = ({ code, language }: CodeBlockProps) => {
           style={vscDarkPlus}
           customStyle={{
             margin: 0,
-            padding: '1.5rem',
-            background: 'transparent',
-            fontSize: '0.875rem',
+            padding: "1.5rem",
+            background: "transparent",
+            fontSize: "0.875rem",
           }}
           showLineNumbers
         >

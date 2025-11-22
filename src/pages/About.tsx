@@ -8,7 +8,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Users, Target, Heart, Zap } from "lucide-react";
-
+import aboutBanner from "@/assets/about-banner.jpg";
+import aboutData from "../data/aboutData.json";
 const About = () => {
   const values = [
     {
@@ -37,40 +38,31 @@ const About = () => {
     },
   ];
 
-  const team = [
-    {
-      name: "Sarah Chen",
-      role: "Founder & Lead Writer",
-      bio: "Full-stack developer with 10+ years of experience in web technologies and a passion for teaching.",
-    },
-    {
-      name: "Michael Rodriguez",
-      role: "Technical Editor",
-      bio: "DevOps specialist and cloud architecture expert, ensuring technical accuracy in every article.",
-    },
-    {
-      name: "Emily Watson",
-      role: "Content Strategist",
-      bio: "Former software engineer turned content creator, bridging the gap between complex tech and clear communication.",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+      {/* Banner Section */}
+      <div className="relative h-64 overflow-hidden">
+        <img
+          src={aboutBanner}
+          alt="About Us"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 to-background/50 flex items-center">
+          <div className="container mx-auto px-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-2">
               About TechBlog
             </h1>
             <p className="text-xl text-muted-foreground">
-              Your trusted source for modern web development insights and
-              tutorials
+              Your trusted source for modern web development insights
             </p>
           </div>
+        </div>
+      </div>
 
+      <main className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
           <Card className="mb-12 bg-card border-border">
             <CardHeader>
               <CardTitle>Who We Are</CardTitle>
@@ -96,10 +88,10 @@ const About = () => {
               Our Values
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {values.map((value) => {
+              {values.map((value, index) => {
                 const Icon = value.icon;
                 return (
-                  <Card key={value.title} className="bg-card border-border">
+                  <Card key={index} className="bg-card border-border">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Icon className="w-5 h-5 text-primary" />
@@ -122,8 +114,8 @@ const About = () => {
               Meet the Team
             </h2>
             <div className="space-y-6">
-              {team.map((member) => (
-                <Card key={member.name} className="bg-card border-border">
+              {aboutData?.team?.map((member, index) => (
+                <Card key={index} className="bg-card border-border">
                   <CardHeader>
                     <CardTitle>{member.name}</CardTitle>
                     <CardDescription>{member.role}</CardDescription>
